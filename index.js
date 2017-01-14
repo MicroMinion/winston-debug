@@ -10,9 +10,9 @@ var Logger = function () {
 }
 
 Logger.prototype.log = function (level, msg, attributes) {
-  var name = 'default'
+  var name = level
   if (attributes.module) {
-    name = attributes.module
+    name = attributes.module + '-' + name
     delete attributes.module
   }
   if (!this._modules[name]) {
